@@ -1,32 +1,48 @@
-**HematoVision - Advanced Blood Cell Classification using Transfer Learning (Design Thinking Approach)**
+**🚀 HEMATOVISION: TRANSFORMING BLOOD CELL CLASSIFICATION WITH TRANSFER LEARNING**
 
 ---
 
-### 1. Empathize: Understanding the Problem
+### 🧠 1. Empathize: Understanding the Problem
 
-Manual classification of blood cells under a microscope is time-consuming, prone to human error, and requires expert knowledge. Misclassification can lead to incorrect medical diagnoses. To address these challenges, we sought to understand the needs of lab technicians and pathologists, emphasizing speed, accuracy, and accessibility.
+🔍 Manual classification of blood cells under a microscope is:
 
----
+* Time-consuming
+* Prone to human error
+* Requires expert knowledge
 
-### 2. Define: Problem Statement
+❗ Misclassification can lead to incorrect medical diagnoses.
 
-Medical laboratories need an efficient and accurate system to automate the classification of Red Blood Cells (RBCs), White Blood Cells (WBCs), and Platelets from microscopic images to support clinical diagnosis.
+👥 To address these issues, we engaged with lab technicians and pathologists to identify their key needs:
 
----
-
-### 3. Ideate: Exploring Solutions
-
-* Use deep learning for image classification.
-* Apply transfer learning to overcome limited data.
-* Implement a lightweight model for ease of deployment.
-* Create a simple and user-friendly web interface for real-time use.
+* Speed
+* Accuracy
+* Accessibility
 
 ---
 
-### 4. Prototype: Model Development
+### 🎯 2. Define: Problem Statement
 
-* **Dataset**: Kaggle - Blood Cells Image Dataset
-* **Folder Structure**:
+📌 **Goal**: Design an automated system to classify microscopic images of blood cells into RBC, WBC, and Platelets with high accuracy, helping medical professionals streamline diagnostic processes.
+
+---
+
+### 💡 3. Ideate: Exploring Possible Solutions
+
+🧪 Potential approaches brainstormed:
+
+* ✅ Deep learning for robust classification
+* ✅ Transfer learning to leverage pretrained models
+* ✅ Lightweight architecture for easy deployment
+* ✅ Intuitive interface using Streamlit
+
+---
+
+### 🧪 4. Prototype: Model Development
+
+#### 📁 Dataset
+
+* **Source**: Kaggle - Blood Cells Image Dataset
+* **Structure**:
 
   ```
   blood_cells_dataset/
@@ -35,46 +51,57 @@ Medical laboratories need an efficient and accurate system to automate the class
       ├── Valid/
       └── Test/
   ```
-* **Preprocessing**:
 
-  * Resized to 224x224
-  * Normalized pixel values
-* **Model**: MobileNetV2 with custom dense layers
-* **Training**:
+#### 🛠️ Preprocessing
 
-  * 15 Epochs with EarlyStopping
-  * Optimizer: Adam
-  * Loss: Categorical Crossentropy
+* Resize images to 224x224
+* Normalize pixel values
 
----
+#### 🧠 Model Architecture
 
-### 5. Test: Evaluation and Validation
+* **Base Model**: MobileNetV2 (pretrained on ImageNet)
+* **Custom Head**:
 
-* Evaluated on validation and test sets
-* Metrics:
+  * GlobalAveragePooling2D
+  * Dense(128, activation='relu')
+  * Dense(3, activation='softmax')
 
-  * Accuracy
-  * Confusion Matrix
-  * Classification Report (Precision, Recall, F1-Score)
-* Visualization:
+#### ⚙️ Training Configuration
 
-  * Loss and accuracy curves
-  * Confusion matrix heatmap
+* Optimizer: Adam
+* Loss Function: Categorical Crossentropy
+* Epochs: 15 (with EarlyStopping)
 
 ---
 
-### 6. Implement: Deployment and Impact
+### 📊 5. Test: Evaluation and Validation
 
-* Saved model as `hematovision_model.h5`
-* Streamlit app for real-time classification with image upload interface
-* Reduced workload for lab staff
-* Increased consistency in diagnostic support
+#### 🧪 Metrics Evaluated
+
+* ✔️ Accuracy
+* ✔️ Confusion Matrix
+* ✔️ Classification Report (Precision, Recall, F1-Score)
+
+#### 📈 Visualizations
+
+* Training vs Validation Accuracy
+* Training vs Validation Loss
+* Confusion Matrix Heatmap
 
 ---
 
-### 7. Requirements
+### 🚀 6. Implement: Deployment and Impact
 
-```
+* 💾 Model saved as: `hematovision_model.h5`
+* 🌐 Streamlit web app built for real-time image prediction
+* 📉 Reduced manual analysis workload
+* 📈 Increased diagnostic consistency and speed
+
+---
+
+### 📦 7. Requirements
+
+```bash
 tensorflow
 tensorflow-hub
 numpy
@@ -87,6 +114,6 @@ streamlit
 
 ---
 
-### 8. Conclusion
+### ✅ 8. Conclusion
 
-By applying the design thinking methodology, HematoVision was developed with a human-centered approach. It successfully automates blood cell classification while being fast, accurate, and easy to use—ultimately aiming to support medical professionals in their diagnostic tasks.
+By applying the **Design Thinking methodology**, HematoVision was developed with a human-centered focus. The result is a fast, accurate, and user-friendly tool for blood cell classification that supports medical professionals and improves healthcare workflows.
